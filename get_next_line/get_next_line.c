@@ -20,18 +20,12 @@ int		join_read_line(char **line, char **cached)
 	len = 0;
 	while(cached[0][len] != '\n' && cached[0][len] != '\0')
 			len++;
-	if(cached[0][len] == '\n'/*|| cached[0][len] == '\0'*/)
+	if(cached[0][len] == '\n')
 	{
 		*line = ft_substr(*cached, 0, len);
 		aux = ft_strdup(*cached + len + 1);
 		free(*cached);
 		*cached = aux;
-		/*if (cached[0][0] == '\0')
-		{
-			free(*cached);
-			*cached = NULL;
-			//printf("please\n");
-		}*/
 		return(1);	
 	}
 	else
